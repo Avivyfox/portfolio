@@ -31,7 +31,7 @@ body {
   color: white;
 }
 
-#header {
+/*#header {
   height: ;
   width: 75%;
   background-color: none;
@@ -40,27 +40,8 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
-}
+}*/
 
-#buttons {
-  padding: 2px;
-  background-color: #0e524e;
-  text-align: center;
-  margin-top: 20px;
-  margin-left: 15%;
-  margin-right: 15%;
-  line-height: 200%;
-}
-
-#sub_buttons {
-  padding: 5px;
-  background-color: #0e524e;
-  text-align: center;
-  margin-top: 20px;
-  margin-left: 15%;
-  margin-right: 15%;
-  line-height: 200%;
-}
 
 .body {
   padding-left: 5%;
@@ -108,41 +89,199 @@ html {
     auto;
 }
 
-#buttons a:link {
-  color: white;
-  background-color: black;
-  text-decoration: none;
-  padding: 10px;
-}
 
-#buttons a:visited {
-  color: white;
-  background-color: black;
-}
-
-#buttons a:hover {
-  color: #0e524e;
-  background-color: none;
-}
-
-#sub_buttons a:link {
-  color: white;
-  background-color: black;
-  text-decoration: none;
-  padding: 10px;
-}
-
-#sub_buttons a:visited {
-  color: white;
-  background-color: black;
-}
-
-#sub_buttons a:hover {
-  color: #0e524e;
-  background-color: none;
-}
 
 .image {
   text-align: center;
 }
 
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Times New Roman", serif;
+  background-color: #111;
+  color: #f5f5f5;
+}
+
+/* ============================================================
+   HOME PAGE – LAYERED VERTICAL NAV
+   ============================================================ */
+
+/* Header sits above the layers */
+#home-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background-color: #111;
+}
+
+#home-header h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #f5f5f5;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+}
+
+/* Layer nav: full-width stacked blocks */
+#home-layers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.home-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14vh;          /* base height */
+  text-decoration: none;
+  cursor: pointer;
+  transition: height 0.35s ease, filter 0.35s ease;
+  overflow: hidden;
+}
+
+.home-layer:hover {
+  height: 22vh;          /* expands on hover */
+  filter: brightness(1.15);
+}
+
+.layer-label {
+  color: #f5f5f5;
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-family: "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Individual layer colours — staying in your #0e524e family */
+#layer-home      { background-color: #0e524e; }
+#layer-portfolio { background-color: #0b4440; }
+#layer-cv        { background-color: #083632; }
+#layer-contact   { background-color: #062b28; }
+#layer-about     { background-color: #04201e; }
+
+/* ============================================================
+   SUB-PAGES – HORIZONTAL TOUCHING BUTTONS (no outer box)
+   ============================================================ */
+
+/*
+  Usage on other pages:
+  <div id="buttons">
+    <a href="index.html">Home</a>
+    ...
+  </div>
+*/
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* no background, no box — buttons themselves are the UI */
+}
+
+#buttons a {
+  display: inline-block;
+  color: white;
+  background-color: #0e524e;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  transform-origin: bottom center;
+}
+
+#buttons a:last-child {
+  border-right: none;
+}
+
+#buttons a:hover {
+  transform: scaleY(1.15);
+  background-color: #0b6b65;
+  color: #f5f5f5;
+}
+
+#buttons a:visited {
+  color: white;
+}
+
+/* Active/current page link */
+#buttons a.active {
+  color: #a8d8d4;
+  background-color: #083632;
+}
+
+/* ============================================================
+   SUB_BUTTONS (sub-nav, same style as #buttons)
+   ============================================================ */
+
+#sub_buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#sub_buttons a {
+  display: inline-block;
+  color: white;
+  background-color: #0e524e;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-family: "Times New Roman", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  transform-origin: bottom center;
+}
+
+#sub_buttons a:last-child {
+  border-right: none;
+}
+
+#sub_buttons a:hover {
+  transform: scaleY(1.15);
+  background-color: #0b6b65;
+}
+
+#sub_buttons a:visited {
+  color: white;
+}
+
+/* ============================================================
+   BODY CONTENT AREA (shared across pages)
+   ============================================================ */
+
+.body {
+  padding: 2% 5% 5%;
+  background-color: #0e524e;
+  text-align: left;
+  margin: 20px 10% 5%;
+}
+
+/* ============================================================
+   HEADER (sub-pages)
+   ============================================================ */
+
+#header {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+#header h1 {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  color: #f5f5f5;
+}
