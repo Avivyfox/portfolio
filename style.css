@@ -141,7 +141,7 @@ h4 {
 }
 
 #menu-toggle .menu-label {
-  color: #f5f5f5;
+  color: #000000;
   font-family: "Courier New", monospace;
   font-size: 1rem;
   letter-spacing: 0.12em;
@@ -202,7 +202,7 @@ body.menu-open .nav-layer {
 }
 
 .nav-label {
-  color: #f5f5f5;
+  color: #000000;
   font-family: "Courier New", monospace;
   font-size: clamp(1rem, 2.5vw, 2rem);
   letter-spacing: 0.1em;
@@ -248,7 +248,7 @@ body.menu-open .nav-layer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #000000;
   background-color: #0e524e;
   text-decoration: none;
   padding: 24px 10px;
@@ -256,7 +256,7 @@ body.menu-open .nav-layer {
   font-size: clamp(1rem, 2.5vw, 1.8rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid #ffffff26;
   transition: transform 0.25s ease, background-color 0.25s ease;
   transform-origin: bottom center;
 }
@@ -268,11 +268,11 @@ body.menu-open .nav-layer {
 #sub_buttons a:hover {
   transform: scaleY(1.12);
   background-color: #0b6b65;
-  color: #f5f5f5;
+  color: #000000;
 }
 
 #sub_buttons a:visited {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* ============================================================
