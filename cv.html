@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviv Fox CV</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
+    <script src="script.js" defer></script>
+</head>
   <body>
+  <button id="menu-toggle" onclick="void(0)">
+    <div class="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="menu-label">Menu</span>
+  </button>
+
+  <nav id="nav-dropdown">
+    <a href="index.html" class="nav-layer" id="nav-home"><span class="nav-label">Home</span></a>
+    <a href="portfolio.html" class="nav-layer" id="nav-portfolio"><span class="nav-label">Portfolio</span></a>
+    <a href="cv.html" class="nav-layer" id="nav-cv"><span class="nav-label">CV</span></a>
+    <a href="contact.html" class="nav-layer" id="nav-contact"><span class="nav-label">Contact</span></a>
+    <a href="about.html" class="nav-layer" id="nav-about"><span class="nav-label">About</span></a>
+  </nav>
     <div id="header">
       <h1>Aviv Fox</h1>
     </div>
 
-    <div id="buttons">
-      
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="cv.html" style="color:#0e524e;">CV</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-     
-    </div>
+    
     <div class="body">
       <h2>CV</h2>
       <div>

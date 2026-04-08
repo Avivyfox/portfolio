@@ -1,77 +1,38 @@
+/* ============================================================
+   FONTS
+   ============================================================ */
 @font-face {
   font-family: Scary;
-  src: url(https://avivyfox.github.io/portfolio/assets/PermanentMarker-Regular.ttf);
-}
-
-@font-face {
-  font-family: Techno;
   src: url(assets/PermanentMarker-Regular.ttf);
 }
 
-<meta
-  charset="utf-8"
-  > <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
-  > .content {
-  padding: 2px;
-  margin: 20px;
-  background-color: #8b8aba;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  cursor: url("https://cdn.glitch.global/f247b447-fa9b-482d-9d02-c5ecdc81ccbe/icons8-select-cursor-32.png?v=1738090061577"), auto;
 }
 
 body {
-  /*background-image: url("assets/background.avif");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;*/
-  color: white;
+  font-family: "Times New Roman", serif;
+  background-color: #111;
+  color: #f5f5f5;
+  line-height: 1.5;
 }
 
-/*#header {
-  height: ;
-  width: 75%;
-  background-color: none;
-  margin: auto;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}*/
-
-
-.body {
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 2%;
-  padding-bottom: 5%;
-  background-color: #0e524e;
-  text-align: left;
-  margin-top: 20px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-}
-h1 {
-  /*font-style: italic;*/
-  font-weight: bold;
-  font-family: Helvetica, sans-serif;
-  /* background-color: #0e524e; */
-  padding: 0px;
-  font-size: 16vw;
-  color: #0e524e;
-  text-align: center;
-  margin: 5%;
-}
-
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
 h2 {
+  font-family: "Courier New", monospace;
   font-weight: bold;
-  font-family:  "Courier New", monospace;
   font-size: 3vw;
-
 }
 
 h3 {
@@ -84,37 +45,9 @@ h4 {
   font-size: 2vw;
 }
 
-html {
-  cursor: url("https://cdn.glitch.global/f247b447-fa9b-482d-9d02-c5ecdc81ccbe/icons8-select-cursor-32.png?v=1738090061577"),
-    auto;
-}
-
-
-
-.image {
-  text-align: center;
-}
-
 /* ============================================================
-   GLOBAL
+   HOME PAGE — LAYERED VERTICAL NAV
    ============================================================ */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Times New Roman", serif;
-  background-color: #111;
-  color: #f5f5f5;
-}
-
-/* ============================================================
-   HOME PAGE – LAYERED VERTICAL NAV
-   ============================================================ */
-
-/* Header sits above the layers */
 #home-header {
   text-align: center;
   padding: 40px 20px 20px;
@@ -122,13 +55,15 @@ body {
 }
 
 #home-header h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 10vw, 8rem);
   color: #f5f5f5;
   letter-spacing: 0.05em;
   font-weight: normal;
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Layer nav: full-width stacked blocks */
 #home-layers {
   display: flex;
   flex-direction: column;
@@ -139,28 +74,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 14vh;          /* base height */
+  height: 13vh;
   text-decoration: none;
   cursor: pointer;
-  transition: height 0.35s ease, filter 0.35s ease;
+  transition: height 0.35s ease, filter 0.3s ease;
   overflow: hidden;
+  width: 100%;
 }
 
 .home-layer:hover {
-  height: 22vh;          /* expands on hover */
+  height: 22vh;
   filter: brightness(1.15);
 }
 
 .layer-label {
   color: #f5f5f5;
-  font-size: clamp(1.2rem, 3vw, 2.2rem);
-  font-family: "Times New Roman", serif;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;
 }
 
-/* Individual layer colours — staying in your #0e524e family */
 #layer-home      { background-color: #0e524e; }
 #layer-portfolio { background-color: #0b4440; }
 #layer-cv        { background-color: #083632; }
@@ -168,80 +103,158 @@ body {
 #layer-about     { background-color: #04201e; }
 
 /* ============================================================
-   SUB-PAGES – HORIZONTAL TOUCHING BUTTONS (no outer box)
+   SUB-PAGES — FIXED MENU BAR AT TOP
    ============================================================ */
-
-/*
-  Usage on other pages:
-  <div id="buttons">
-    <a href="index.html">Home</a>
-    ...
-  </div>
-*/
-
-#buttons {
+#menu-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  /* no background, no box — buttons themselves are the UI */
-}
-
-#buttons a {
-  display: inline-block;
-  color: white;
+  align-items: center;
   background-color: #0e524e;
-  text-decoration: none;
-  padding: 10px 20px;
-  font-family: "Times New Roman", serif;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-right: 1px solid rgba(255,255,255,0.15);
-  transition: transform 0.25s ease, background-color 0.25s ease;
-  transform-origin: bottom center;
+  height: 54px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  gap: 14px;
 }
 
-#buttons a:last-child {
-  border-right: none;
+#menu-toggle .hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 20px;
+  height: 100%;
 }
 
-#buttons a:hover {
-  transform: scaleY(1.15);
-  background-color: #0b6b65;
+#menu-toggle .hamburger-icon span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #f5f5f5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu-toggle .menu-label {
   color: #f5f5f5;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-#buttons a:visited {
-  color: white;
+/* Animate hamburger to X when open */
+body.menu-open #menu-toggle .hamburger-icon span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
-
-/* Active/current page link */
-#buttons a.active {
-  color: #a8d8d4;
-  background-color: #083632;
+body.menu-open #menu-toggle .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+body.menu-open #menu-toggle .hamburger-icon span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ============================================================
-   SUB_BUTTONS (sub-nav, same style as #buttons)
+   SUB-PAGES — DROPDOWN NAV
    ============================================================ */
+#nav-dropdown {
+  position: fixed;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
 
+body.menu-open #nav-dropdown {
+  max-height: 100vh;
+}
+
+.nav-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  min-height: 0;
+  text-decoration: none;
+  overflow: hidden;
+  transition: height 0.35s ease, min-height 0.35s ease, filter 0.3s ease;
+  width: 100%;
+}
+
+body.menu-open .nav-layer {
+  height: 13vh;
+  min-height: 54px;
+}
+
+.nav-layer:hover {
+  filter: brightness(1.18);
+  height: 20vh !important;
+}
+
+.nav-label {
+  color: #f5f5f5;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#nav-home      { background-color: #0e524e; }
+#nav-portfolio { background-color: #0b4440; }
+#nav-cv        { background-color: #083632; }
+#nav-contact   { background-color: #062b28; }
+#nav-about     { background-color: #04201e; }
+
+/* ============================================================
+   SUB-PAGES — PAGE HEADER
+   ============================================================ */
+#header {
+  text-align: center;
+  padding: 80px 20px 20px;
+}
+
+#header h1 {
+  font-size: clamp(1.8rem, 6vw, 5rem);
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  color: #f5f5f5;
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* ============================================================
+   PORTFOLIO PAGE — SUB-BUTTONS (full-width horizontal bar)
+   ============================================================ */
 #sub_buttons {
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #sub_buttons a {
-  display: inline-block;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   background-color: #0e524e;
   text-decoration: none;
-  padding: 8px 16px;
-  font-family: "Times New Roman", serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
+  padding: 24px 10px;
+  font-family: "Courier New", monospace;
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-right: 1px solid rgba(255,255,255,0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.25s ease, background-color 0.25s ease;
   transform-origin: bottom center;
 }
@@ -251,8 +264,9 @@ body {
 }
 
 #sub_buttons a:hover {
-  transform: scaleY(1.15);
+  transform: scaleY(1.12);
   background-color: #0b6b65;
+  color: #f5f5f5;
 }
 
 #sub_buttons a:visited {
@@ -260,9 +274,8 @@ body {
 }
 
 /* ============================================================
-   BODY CONTENT AREA (shared across pages)
+   CONTENT BODY AREA
    ============================================================ */
-
 .body {
   padding: 2% 5% 5%;
   background-color: #0e524e;
@@ -270,18 +283,17 @@ body {
   margin: 20px 10% 5%;
 }
 
-/* ============================================================
-   HEADER (sub-pages)
-   ============================================================ */
-
-#header {
+.image {
   text-align: center;
-  padding: 30px 20px 10px;
 }
 
-#header h1 {
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
-  font-weight: normal;
-  letter-spacing: 0.04em;
-  color: #f5f5f5;
+/* ============================================================
+   LINKS INSIDE CONTENT
+   ============================================================ */
+.body a {
+  color: #a8d8d4;
+}
+
+.body a:visited {
+  color: #7abfba;
 }
