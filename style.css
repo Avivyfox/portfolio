@@ -3,12 +3,12 @@
    ============================================================ */
 @font-face {
   font-family: "futura-pt";
-  src: url('assets/Futura Medium Oblique.otf') format('otf');
+  src: url('assets/Futura-Medium-Oblique.otf') format('opentype');
 }
 
 @font-face {
   font-family: "futura-bold";
-  src: url('assets/PermanentMarker-Regular.ttf') format('ttf');
+  src: url('assets/Futura-Bold-Regular.ttf') format('truetype');
 }
 
 /* ============================================================
