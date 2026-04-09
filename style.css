@@ -2,12 +2,12 @@
    FONTS
    ============================================================ */
 @font-face {
-  font-family: 'futura-pt';
+  font-family: "futura-pt";
   src: url('assets/Futura Medium Oblique.otf') format('otf');
 }
 
 @font-face {
-  font-family: 'futura-bold';
+  font-family: "futura-bold";
   src: url('assets/PermanentMarker-Regular.ttf') format('ttf');
 }
 
