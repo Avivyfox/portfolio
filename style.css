@@ -345,7 +345,7 @@ body.menu-open .nav-layer {
        /* Clickable image overlay hint */
        .image {
          text-align: center;
-         position: relative;
+         position:relative;
        }
 
        .image a {
@@ -397,10 +397,12 @@ body.menu-open .nav-layer {
    ============================================================ */
 .body a {
   color: #a8d8d4;
+  text-decoration: none;
 }
 
 .body a:visited {
   color: #7abfba;
+  text-decoration: none;
 }
 
 /* ============================================================
