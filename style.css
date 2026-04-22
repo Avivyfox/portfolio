@@ -290,10 +290,106 @@ body.menu-open .nav-layer {
   margin: 20px 10% 5%;
 }
 
-.image {
-  text-align: center;
-}
 
+       #drive-banner {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin: 18px auto 10px auto;
+         max-width: 600px;
+         background: linear-gradient(135deg, #e8f0fe 0%, #f1f8e9 100%);
+         border: 2px dashed #4285F4;
+         border-radius: 12px;
+         padding: 16px 24px;
+         text-align: center;
+       }
+
+       #drive-banner p {
+         margin: 0 0 10px 0;
+         font-size: 0.92em;
+         color: #444;
+         line-height: 1.5;
+       }
+
+       #drive-banner p strong {
+         color: #1a1a1a;
+       }
+
+       #drive-btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 9px;
+         background: #4285F4;
+         color: #fff;
+         text-decoration: none;
+         font-weight: 700;
+         font-size: 0.97em;
+         padding: 10px 22px;
+         border-radius: 8px;
+         letter-spacing: 0.02em;
+         transition: background 0.18s, transform 0.15s;
+         box-shadow: 0 2px 8px rgba(66,133,244,0.25);
+       }
+
+       #drive-btn:hover {
+         background: #2563d0;
+         transform: translateY(-1px);
+       }
+
+       #drive-btn svg {
+         flex-shrink: 0;
+       }
+
+       /* Clickable image overlay hint */
+       .image {
+         text-align: center;
+         position: relative;
+       }
+
+       .image a {
+         display: block;
+         position: relative;
+       }
+
+       .image a::after {
+         content: "View Project →";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 80%; /* match image width */
+         background: rgba(0, 0, 0, 0.62);
+         color: #fff;
+         font-size: 0.88em;
+         font-weight: 600;
+         letter-spacing: 0.05em;
+         text-align: center;
+         padding: 10px 0;
+         opacity: 0;
+         transition: opacity 0.2s ease;
+         pointer-events: none;
+         box-sizing: border-box;
+       }
+
+       .image a:hover::after {
+         opacity: 1;
+       }
+
+       .image a img {
+         display: block;
+         transition: filter 0.2s ease;
+       }
+
+       .image a:hover img {
+         filter: brightness(0.82);
+       }
+
+       /* Small "click to view" label always visible below each image */
+       .click-hint {
+         font-size: 0.78em;
+         color: #777;
+         margin: 4px 0 14px 0;
+         letter-spacing: 0.03em;
+       }
 /* ============================================================
    LINKS INSIDE CONTENT
    ============================================================ */
@@ -304,3 +400,7 @@ body.menu-open .nav-layer {
 .body a:visited {
   color: #7abfba;
 }
+
+/* ============================================================
+   Portfolio page
+   ============================================================ */
