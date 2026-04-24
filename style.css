@@ -2,14 +2,17 @@
    FONTS
    ============================================================ */
 @font-face {
-  font-family: "futura-pt";
+  font-family: "futura-oblique";
   src: url('assets/Futura-Medium-Oblique.otf') format('opentype');
 }
 
-@font-face {
-  font-family: "futura-bold";
-  src: url('assets/Futura-Bold-Regular.ttf') format('truetype');
-}
+/* ============================================================
+   FONT SYSTEM — three roles
+   
+   1. DISPLAY  — futura-oblique, large  → name + section titles (h1, h2)
+   2. SUBTITLE — futura-oblique, smaller → sub-headings, nav, buttons (h4, labels)
+   3. BODY     — Arial, small           → all informational text (h3, p, etc.)
+   ============================================================ */
 
 /* ============================================================
    RESET & BASE
@@ -25,32 +28,54 @@ html {
 }
 
 body {
-  font-family: "futura-pt", serif;
+  font-family: Arial, sans-serif;
   background-color: #000000;
-  color: #000000;
+  color: #ffffff;
   line-height: 1.5;
-  font-style: oblique;
 }
 
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
+
+/* DISPLAY — Futura Medium Oblique, large — name & section titles */
+h1, h2 {
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 6rem);
+  letter-spacing: 0.05em;
+}
+
 h2 {
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
-  font-size: 3vw;
-  color: #f5f5f5;
+  font-size: clamp(1.4rem, 4vw, 3rem);
+  letter-spacing: 0.04em;
 }
 
-h3 {
-  font-family: "Arial", monospace;
-  font-size: 3vw;
-  color: #f5f5f5;
-}
-
+/* SUBTITLE — Futura Medium Oblique, smaller — project titles, sub-headings */
 h4 {
-  font-family: "Arial", monospace;
-  font-size: 3vw;
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: clamp(0.95rem, 2.2vw, 1.5rem);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+/* BODY — Arial, small — all informational / descriptive text */
+h3, p, li {
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.82rem, 1.5vw, 1rem);
+  color: #ffffff;
+  font-weight: normal;
+}
+
+p {
+  margin-bottom: 0.6em;
 }
 
 /* ============================================================
@@ -63,13 +88,20 @@ h4 {
 }
 
 #home-header h1 {
+  font-family: "futura-oblique", sans-serif;
   font-size: clamp(2rem, 10vw, 8rem);
-  color: #f5f5f5;
+  color: #ffffff;
   letter-spacing: 0.05em;
   font-weight: normal;
-  font-family: "futura-pt", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+#home-header h3 {
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  color: #ffffff;
+  margin-top: 8px;
 }
 
 #home-layers {
@@ -96,10 +128,10 @@ h4 {
 }
 
 .layer-label {
-  color: #f5f5f5;
+  color: #ffffff;
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;
@@ -127,7 +159,7 @@ h4 {
   cursor: pointer;
   border: none;
   outline: none;
-  gap: 14px;
+  padding: 0;
 }
 
 #menu-toggle .hamburger-icon {
@@ -143,20 +175,16 @@ h4 {
   display: block;
   width: 30px;
   height: 2px;
-  background-color: #000000;
+  background-color: #ffffff;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Hide the "Menu" word — icon only */
 #menu-toggle .menu-label {
-  color: #000000;
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
-  font-size: 3rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: none;
 }
 
-/* Animate hamburger to X when open */
+/* Animate hamburger → X when open */
 body.menu-open #menu-toggle .hamburger-icon span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -210,9 +238,9 @@ body.menu-open .nav-layer {
 }
 
 .nav-label {
-  color: #000000;
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
+  color: #ffffff;
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
   font-size: clamp(1rem, 2.5vw, 2rem);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -234,16 +262,16 @@ body.menu-open .nav-layer {
 }
 
 #header h1 {
+  font-family: "futura-oblique", sans-serif;
   font-size: clamp(1.8rem, 6vw, 5rem);
   font-weight: normal;
   letter-spacing: 0.04em;
-  color: #f5f5f5;
-  font-family: "futura-pt", sans-serif;
+  color: #ffffff;
   margin: 0;
 }
 
 /* ============================================================
-   PORTFOLIO PAGE — SUB-BUTTONS (full-width horizontal bar)
+   PORTFOLIO PAGE — SUB-BUTTONS
    ============================================================ */
 #sub_buttons {
   display: flex;
@@ -257,12 +285,12 @@ body.menu-open .nav-layer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  color: #ffffff;
   background-color: #0e524e;
   text-decoration: none;
   padding: 24px 10px;
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
   font-size: clamp(1rem, 3vw, 1.8rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -278,11 +306,61 @@ body.menu-open .nav-layer {
 #sub_buttons a:hover {
   transform: scaleY(1.12);
   background-color: #0b6b65;
-  color: #000000;
+  color: #ffffff;
 }
 
 #sub_buttons a:visited {
-  color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+/* ============================================================
+   GOOGLE DRIVE BANNER
+   ============================================================ */
+#drive-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 22px auto 14px auto;
+  max-width: 600px;
+  background: rgba(255,255,255,0.05);
+  border: 2px dashed rgba(255,255,255,0.35);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+#drive-banner p {
+  margin: 0 0 10px 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+#drive-banner p strong {
+  font-family: "futura-oblique", sans-serif;
+  color: #ffffff;
+}
+
+#drive-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #4285F4;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "futura-oblique", sans-serif;
+  font-size: 0.95em;
+  letter-spacing: 0.04em;
+  padding: 10px 22px;
+  border-radius: 8px;
+  transition: background 0.18s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(66,133,244,0.35);
+}
+
+#drive-btn:hover {
+  background: #2563d0;
+  transform: translateY(-1px);
 }
 
 /* ============================================================
@@ -291,110 +369,72 @@ body.menu-open .nav-layer {
 .body {
   padding: 2% 5% 5%;
   background-color: #000000;
-  text-align: left;
-  margin: 20px 10% 5%;
+  text-align: center;
+  margin: 20px auto 5%;
+  max-width: 900px;
 }
 
+/* ============================================================
+   PORTFOLIO IMAGE BLOCKS — centered
+   ============================================================ */
+.image {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
 
-       #drive-banner {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         margin: 18px auto 10px auto;
-         max-width: 600px;
-         background: linear-gradient(135deg, #e8f0fe 0%, #f1f8e9 100%);
-         border: 2px dashed #4285F4;
-         border-radius: 12px;
-         padding: 16px 24px;
-         text-align: center;
-       }
+.image h2,
+.image h4 {
+  margin-bottom: 10px;
+}
 
-       #drive-banner p {
-         margin: 0 0 10px 0;
-         font-size: 0.92em;
-         color: #444;
-         line-height: 1.5;
-       }
+.image a {
+  display: inline-block;
+  position: relative;
+}
 
-       #drive-banner p strong {
-         color: #1a1a1a;
-       }
+.image a img {
+  display: block;
+  margin: 0 auto;
+  transition: filter 0.2s ease;
+}
 
-       #drive-btn {
-         display: inline-flex;
-         align-items: center;
-         gap: 9px;
-         background: #4285F4;
-         color: #fff;
-         text-decoration: none;
-         font-weight: 700;
-         font-size: 0.97em;
-         padding: 10px 22px;
-         border-radius: 8px;
-         letter-spacing: 0.02em;
-         transition: background 0.18s, transform 0.15s;
-         box-shadow: 0 2px 8px rgba(66,133,244,0.25);
-       }
+.image a:hover img {
+  filter: brightness(0.75);
+}
 
-       #drive-btn:hover {
-         background: #2563d0;
-         transform: translateY(-1px);
-       }
+/* Hover overlay */
+.image a::after {
+  content: "View Project →";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  font-family: "futura-oblique", sans-serif;
+  font-size: 0.88em;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
 
-       #drive-btn svg {
-         flex-shrink: 0;
-       }
+.image a:hover::after {
+  opacity: 1;
+}
 
-       /* Clickable image overlay hint */
-       .image {
-         text-align: center;
-         position:relative;
-       }
+.click-hint {
+  font-family: Arial, sans-serif;
+  font-size: 0.78em;
+  color: #aaaaaa;
+  margin: 6px 0 0 0;
+  letter-spacing: 0.03em;
+}
 
-       .image a {
-         display: block;
-         position: relative;
-       }
-
-       .image a::after {
-         content: "View Project →";
-         position: absolute;
-         bottom: 0;
-         left: 0;
-         width: 80%; /* match image width */
-         background: rgba(0, 0, 0, 0.62);
-         color: #fff;
-         font-size: 0.88em;
-         font-weight: 600;
-         letter-spacing: 0.05em;
-         text-align: center;
-         padding: 10px 0;
-         opacity: 0;
-         transition: opacity 0.2s ease;
-         pointer-events: none;
-         box-sizing: border-box;
-       }
-
-       .image a:hover::after {
-         opacity: 1;
-       }
-
-       .image a img {
-         display: block;
-         transition: filter 0.2s ease;
-       }
-
-       .image a:hover img {
-         filter: brightness(0.82);
-       }
-
-       /* Small "click to view" label always visible below each image */
-       .click-hint {
-         font-size: 0.78em;
-         color: #777;
-         margin: 4px 0 14px 0;
-         letter-spacing: 0.03em;
-       }
 /* ============================================================
    LINKS INSIDE CONTENT
    ============================================================ */
@@ -405,9 +445,8 @@ body.menu-open .nav-layer {
 
 .body a:visited {
   color: #7abfba;
-  text-decoration: none;
 }
 
-/* ============================================================
-   Portfolio page
-   ============================================================ */
+.body a:hover {
+  color: #ffffff;
+}
