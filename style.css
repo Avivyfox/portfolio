@@ -37,11 +37,13 @@ body {
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
-h2 {
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
-  font-size: 2vw;
-  color: #f5f5f5;
+
+/* DISPLAY — Futura Medium Oblique, large — name & section titles */
+h1, h2 {
+  font-family: "futura-oblique", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #ffffff;
 }
 
 h1 {
@@ -56,15 +58,12 @@ h2 {
 
 /* SUBTITLE — Futura Medium Oblique, smaller — project titles, sub-headings */
 h4 {
-  font-family: "Arial", monospace;
-  font-size: 2vw;
   font-family: "futura-oblique", sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: clamp(0.95rem, 2.2vw, 1.5rem);
   letter-spacing: 0.04em;
   color: #ffffff;
-
 }
 
 /* BODY — Arial, small — all informational / descriptive text */
@@ -151,7 +150,7 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1001;
+  z-index: 1000;
   width: 100%;
   display: flex;
   align-items: center;
@@ -182,12 +181,6 @@ p {
 
 /* Hide the "Menu" word — icon only */
 #menu-toggle .menu-label {
-  color: #000000;
-  font-family: "futura-pt", monospace;
-  font-weight: oblique;
-  font-size: 2rem;
-  letter-spacing: 0.12em;
-  /*text-transform: uppercase;*/
   display: none;
 }
 
@@ -207,43 +200,41 @@ body.menu-open #menu-toggle .hamburger-icon span:nth-child(3) {
    ============================================================ */
 #nav-dropdown {
   position: fixed;
-  top: 0;
+  top: 54px;
   left: 0;
   width: 100%;
-  height: 100vh;
   z-index: 999;
   display: flex;
   flex-direction: column;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
 }
 
 body.menu-open #nav-dropdown {
-  pointer-events: all;
-  visibility: visible;
-  opacity: 1;
+  max-height: 100vh;
 }
 
 .nav-layer {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  height: 0;
+  min-height: 0;
   text-decoration: none;
   overflow: hidden;
-  transition: flex 0.3s ease, filter 0.3s ease;
+  transition: height 0.35s ease, min-height 0.35s ease, filter 0.3s ease;
   width: 100%;
 }
 
 body.menu-open .nav-layer {
-  flex: 1;
+  height: 13vh;
+  min-height: 54px;
 }
 
 .nav-layer:hover {
   filter: brightness(1.18);
-  flex: 1.6 !important;
+  height: 20vh !important;
 }
 
 .nav-label {
